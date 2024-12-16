@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/bootstrap/css" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/fonts" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/assets" />
+      <path value="$PROJECT_DIR$/vendor/cubeportfolio/css" />
+      <path value="$PROJECT_DIR$/vendor/cubeportfolio/img" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/build" />
+      <path value="$PROJECT_DIR$/vendor/cubeportfolio/js" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/demo" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/dist" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/docs" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/src" />
+      <path value="$PROJECT_DIR$/vendor/themify/fonts" />
+    </include_path>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+medicalphoto/**
+logphoto/**
+company_documents/**
+lib/db/connection.php
+/.idea/dataSources/cceb6738-7fae-4d58-91d5-5118652a5852/storage_v2/_src_/schema/aimsglob_aimscloud.bsgpjw.meta
+/.idea/dataSources/cceb6738-7fae-4d58-91d5-5118652a5852/storage_v2/_src_/schema/aimsglob_aimscloud.bsgpjw.zip
+/.idea/dataSources/cceb6738-7fae-4d58-91d5-5118652a5852.xml
+/.idea/dataSources.xml
+/.idea/dataSources/cceb6738-7fae-4d58-91d5-5118652a5852/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/.idea/dataSources.local.xml

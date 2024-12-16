@@ -1,0 +1,6 @@
+[27-Oct-2020 16:09:31 Asia/Kuala_Lumpur] PHP Notice:  Use of undefined constant m - assumed 'm' in /home/iappsmy/public_html/maqis/app/model/staff_function.php on line 5
+[27-Oct-2020 16:09:31 Asia/Kuala_Lumpur] PHP Notice:  Use of undefined constant Y - assumed 'Y' in /home/iappsmy/public_html/maqis/app/model/staff_function.php on line 6
+[27-Oct-2020 16:09:31 Asia/Kuala_Lumpur] PHP Notice:  Use of undefined constant d - assumed 'd' in /home/iappsmy/public_html/maqis/app/model/staff_function.php on line 7
+[27-Oct-2020 16:09:31 Asia/Kuala_Lumpur] PHP Notice:  Use of undefined constant H - assumed 'H' in /home/iappsmy/public_html/maqis/app/model/staff_function.php on line 8
+[27-Oct-2020 16:09:31 Asia/Kuala_Lumpur] PHP Notice:  Use of undefined constant i - assumed 'i' in /home/iappsmy/public_html/maqis/app/model/staff_function.php on line 9
+[27-Oct-2020 16:09:31 Asia/Kuala_Lumpur] PHP Notice:  Use of undefined constant s - assumed 's' in /home/iappsmy/public_html/maqis/app/model/staff_function.php on line 10

@@ -1,0 +1,79 @@
+	
+<style>
+table {
+    border-collapse: collapse;
+	width: 53.98mm;
+	height: 85.60mm;
+	 border-radius: 10px;
+	 table-layout: fixed;
+	}
+	
+table.front{
+     background: rgba(255, 255, 255, 0.6);
+}
+th, td {
+    border: 0x solid black;
+}
+td.footer{
+	vertical-align:top;
+}
+fieldset{
+	width: 53.98mm;
+	height: 85.60mm;
+	border: 1x solid black;
+	box-shadow:0 0 10px #999;
+	border-radius: 8px;
+	 display: block;
+  position: relative;
+	 background-size: 55.98mm 90.60mm;
+}
+fieldset.first{	
+	background-image: url("../../photos/background_card/temp_bg.png");
+	 background-size: cover;
+}
+
+fieldset.back{
+ 
+	   position: relative;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.back:after{
+	 content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+    background-image: url("../../photos/background_card/temp_bg_back.png");
+    background-repeat: no-repeat;
+    background-position: center 1px;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+	
+}
+
+
+.orderlist {
+  
+  position:relative;
+  margin-left: -20px;
+}
+a {
+  position:absolute;
+  left:70px;
+}
+
+p{
+	padding-top:0px;
+	margin-top:0px;
+	
+}
+</style>

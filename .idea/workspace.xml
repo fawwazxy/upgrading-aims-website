@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cb009084-178e-433b-9bf7-ce90b93fb9cd" name="Default Changelist" comment="updated ccd leave/inout support conditions&#10;added unclaimed ot noti on mobile">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/model/v02_aims_visitor_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/model/v02_aims_visitor_function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/visitor/add_visitor_attendance.php" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/visitor/add_visitor_attendance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/visitor/check_out_visitor_attendance.php" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/visitor/check_out_visitor_attendance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/visitor/get_visitor_attendance_list_by_id.php" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/visitor/get_visitor_attendance_list_by_id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/visitor/get_visitor_latest_attendance.php" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/visitor/get_visitor_latest_attendance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile/visitor/login_visitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/mobile/visitor/login_visitor.php" afterDir="false" />
+    </list>
+    <list id="e538b934-42a8-4be1-a1cb-c9b2dd20dfca" name="Ignore List" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/db/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/db/connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="visitor-v2" />
+                    <option name="lastUsedInstant" value="1695733372" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1695733371" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/bootstrap/css" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/fonts" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/assets" />
+      <path value="$PROJECT_DIR$/vendor/cubeportfolio/css" />
+      <path value="$PROJECT_DIR$/vendor/cubeportfolio/img" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/build" />
+      <path value="$PROJECT_DIR$/vendor/cubeportfolio/js" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/demo" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/dist" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/docs" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/heic2any-master/src" />
+      <path value="$PROJECT_DIR$/vendor/themify/fonts" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2FRX61pQMEDDanJhI51MVstNPaU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="app.teamhub.trackedBranches" value="-pm11gd/main" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cpmsV2" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\aims\app\custom-css" />
+      <recent name="C:\xampp\htdocs\aims\app\view" />
+      <recent name="C:\xampp\htdocs\aims\app\controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\aims\mobile\apk" />
+      <recent name="C:\xampp\htdocs\aims\app\car_photo" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb009084-178e-433b-9bf7-ce90b93fb9cd" name="Default Changelist" comment="" />
+      <changelist id="e538b934-42a8-4be1-a1cb-c9b2dd20dfca" name="Ignore List" comment="" />
+      <created>1664455690648</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664455690648</updated>
+      <workItem from="1664455691938" duration="346000" />
+      <workItem from="1664456048641" duration="5044000" />
+      <workItem from="1666496520622" duration="13425000" />
+      <workItem from="1666660452048" duration="13813000" />
+      <workItem from="1666744128524" duration="9412000" />
+      <workItem from="1666830506090" duration="8320000" />
+      <workItem from="1667009136716" duration="8615000" />
+      <workItem from="1667091033935" duration="8138000" />
+      <workItem from="1667350253884" duration="14650000" />
+      <workItem from="1667440188038" duration="4101000" />
+      <workItem from="1667450203919" duration="6965000" />
+      <workItem from="1667546424905" duration="10283000" />
+      <workItem from="1667634593402" duration="602000" />
+      <workItem from="1667697651143" duration="15320000" />
+      <workItem from="1667782739108" duration="9705000" />
+      <workItem from="1667811371217" duration="216000" />
+      <workItem from="1667865875797" duration="12291000" />
+      <workItem from="1667953095004" duration="17560000" />
+      <workItem from="1667983860837" duration="51000" />
+      <workItem from="1668043996568" duration="9312000" />
+      <workItem from="1668055304740" duration="7784000" />
+      <workItem from="1668069607716" duration="208000" />
+      <workItem from="1668216335162" duration="19121000" />
+      <workItem from="1668302075190" duration="17795000" />
+      <workItem from="1668342052563" duration="12040000" />
+      <workItem from="1668384873946" duration="9406000" />
+      <workItem from="1668474429583" duration="5368000" />
+      <workItem from="1668561915073" duration="15206000" />
+      <workItem from="1668643575084" duration="17343000" />
+      <workItem from="1668991687665" duration="20774000" />
+      <workItem from="1669077928019" duration="10257000" />
+      <workItem from="1669161884725" duration="3239000" />
+      <workItem from="1669250501022" duration="8016000" />
+      <workItem from="1669425946148" duration="11823000" />
+      <workItem from="1669508922474" duration="5167000" />
+      <workItem from="1669538913093" duration="827000" />
+      <workItem from="1669680797316" duration="10145000" />
+      <workItem from="1669768829594" duration="8394000" />
+      <workItem from="1669796566480" duration="1951000" />
+      <workItem from="1669854960415" duration="11756000" />
+      <workItem from="1669885548175" duration="40000" />
+      <workItem from="1670114227693" duration="11306000" />
+      <workItem from="1670128995880" duration="801000" />
+      <workItem from="1670129811531" duration="5874000" />
+      <workItem from="1670199017239" duration="12626000" />
+      <workItem from="1670288420783" duration="5965000" />
+      <workItem from="1670308011086" duration="579000" />
+      <workItem from="1670371536330" duration="18313000" />
+      <workItem from="1670459899323" duration="21187000" />
+      <workItem from="1670635936201" duration="688000" />
+      <workItem from="1670642468716" duration="1568000" />
+      <workItem from="1670647682552" duration="5417000" />
+      <workItem from="1670717790997" duration="5692000" />
+      <workItem from="1670745023545" duration="1624000" />
+      <workItem from="1670805966065" duration="1980000" />
+      <workItem from="1670831331171" duration="1627000" />
+      <workItem from="1670889651071" duration="6747000" />
+      <workItem from="1670976855282" duration="1193000" />
+      <workItem from="1671064829812" duration="622000" />
+      <workItem from="1671075762296" duration="4066000" />
+      <workItem from="1671327516394" duration="7374000" />
+      <workItem from="1671344089810" duration="2175000" />
+      <workItem from="1671411348431" duration="3250000" />
+      <workItem from="1671430394023" duration="652000" />
+      <workItem from="1671671822092" duration="12963000" />
+      <workItem from="1671845314930" duration="13552000" />
+      <workItem from="1672013221476" duration="609000" />
+      <workItem from="1672017906589" duration="100000" />
+      <workItem from="1672019950393" duration="5916000" />
+      <workItem from="1672106087782" duration="3404000" />
+      <workItem from="1672122676244" duration="3769000" />
+      <workItem from="1672190378290" duration="13996000" />
+      <workItem from="1672272947542" duration="11671000" />
+      <workItem from="1672290030446" duration="2983000" />
+      <workItem from="1672449887494" duration="12085000" />
+      <workItem from="1672534351279" duration="5909000" />
+      <workItem from="1672625660552" duration="15528000" />
+      <workItem from="1672704819497" duration="9882000" />
+      <workItem from="1672793850899" duration="14788000" />
+      <workItem from="1672895088701" duration="4931000" />
+      <workItem from="1672908963006" duration="5000" />
+      <workItem from="1673145845243" duration="6348000" />
+      <workItem from="1673224924557" duration="3136000" />
+      <workItem from="1673233202962" duration="1774000" />
+      <workItem from="1673237908380" duration="675000" />
+      <workItem from="1673244275763" duration="690000" />
+      <workItem from="1673325012907" duration="629000" />
+      <workItem from="1673401906464" duration="825000" />
+      <workItem from="1673402745190" duration="1726000" />
+      <workItem from="1673655491564" duration="7082000" />
+      <workItem from="1673671236519" duration="1588000" />
+      <workItem from="1673686242038" duration="751000" />
+      <workItem from="1673741882176" duration="2376000" />
+      <workItem from="1673765521068" duration="2796000" />
+      <workItem from="1673827917053" duration="19363000" />
+      <workItem from="1673914113713" duration="19189000" />
+      <workItem from="1674000419298" duration="10091000" />
+      <workItem from="1674086798091" duration="16617000" />
+      <workItem from="1674699999439" duration="5000" />
+      <workItem from="1674700128823" duration="9000" />
+      <workItem from="1675044237294" duration="10434000" />
+      <workItem from="1675123849810" duration="4380000" />
+      <workItem from="1675210650245" duration="5556000" />
+      <workItem from="1675305625240" duration="177000" />
+      <workItem from="1675321218082" duration="719000" />
+      <workItem from="1675656753561" duration="431000" />
+      <workItem from="1675669062019" duration="1223000" />
+      <workItem from="1675672500556" duration="263000" />
+      <workItem from="1675734129998" duration="540000" />
+      <workItem from="1675736887215" duration="2479000" />
+      <workItem from="1675826624164" duration="505000" />
+      <workItem from="1675828167963" duration="2497000" />
+      <workItem from="1675924773320" duration="665000" />
+      <workItem from="1676079187801" duration="595000" />
+      <workItem from="1676184285101" duration="644000" />
+      <workItem from="1676275102445" duration="698000" />
+      <workItem from="1676276832345" duration="609000" />
+      <workItem from="1676429169940" duration="628000" />
+      <workItem from="1676450832263" duration="658000" />
+      <workItem from="1676867281866" duration="1065000" />
+      <workItem from="1676944875359" duration="4944000" />
+      <workItem from="1676951850180" duration="1487000" />
+      <workItem from="1676963461460" duration="3827000" />
+      <workItem from="1677025196926" duration="458000" />
+      <workItem from="1677125833515" duration="552000" />
+      <workItem from="1677283988721" duration="3982000" />
+      <workItem from="1677292651152" duration="682000" />
+      <workItem from="1677385395152" duration="673000" />
+      <workItem from="1677716671766" duration="173000" />
+      <workItem from="1677716991793" duration="760000" />
+      <workItem from="1678170414116" duration="959000" />
+      <workItem from="1678593980619" duration="929000" />
+      <workItem from="1678610350424" duration="946000" />
+      <workItem from="1678696980275" duration="461000" />
+      <workItem from="1678941954265" duration="358000" />
+      <workItem from="1678949923696" duration="124000" />
+      <workItem from="1678950358541" duration="725000" />
+      <workItem from="1679189880583" duration="2958000" />
+      <workItem from="1679449549424" duration="433000" />
+      <workItem from="1679455122434" duration="867000" />
+      <workItem from="1679543155622" duration="1046000" />
+      <workItem from="1679553747369" duration="1358000" />
+      <workItem from="1679557506834" duration="656000" />
+      <workItem from="1679791555138" duration="613000" />
+      <workItem from="1679802561015" duration="1306000" />
+      <workItem from="1679971059994" duration="846000" />
+      <workItem from="1680051828828" duration="261000" />
+      <workItem from="1680138108622" duration="108000" />
+      <workItem from="1680406866204" duration="761000" />
+      <workItem from="1680741521294" duration="104000" />
+      <workItem from="1681005433850" duration="410000" />
+      <workItem from="1681007244345" duration="679000" />
+      <workItem from="1681099540710" duration="727000" />
+      <workItem from="1681111514790" duration="172000" />
+      <workItem from="1681268775300" duration="1083000" />
+      <workItem from="1681271702270" duration="1688000" />
+      <workItem from="1681363800857" duration="3367000" />
+      <workItem from="1681786453811" duration="2495000" />
+      <workItem from="1681801900299" duration="260000" />
+      <workItem from="1681869096406" duration="734000" />
+      <workItem from="1681879627731" duration="626000" />
+      <workItem from="1683076666313" duration="1419000" />
+      <workItem from="1683079750897" duration="307000" />
+      <workItem from="1683085165550" duration="1110000" />
+      <workItem from="1683419355603" duration="1301000" />
+      <workItem from="1683619008400" duration="700000" />
+      <workItem from="1683681339189" duration="7288000" />
+      <workItem from="1683691121904" duration="4945000" />
+      <workItem from="1683767635375" duration="15145000" />
+      <workItem from="1683936897308" duration="2530000" />
+      <workItem from="1684027781551" duration="1815000" />
+      <workItem from="1684284499371" duration="1851000" />
+      <workItem from="1684371732368" duration="3940000" />
+      <workItem from="1684628296951" duration="1520000" />
+      <workItem from="1684714100943" duration="2723000" />
+      <workItem from="1686020914616" duration="658000" />
+      <workItem from="1686445821855" duration="399000" />
+      <workItem from="1686811598085" duration="31000" />
+      <workItem from="1686811660250" duration="27000" />
+      <workItem from="1686812393361" duration="868000" />
+      <workItem from="1687321027034" duration="74000" />
+      <workItem from="1687333682414" duration="1439000" />
+      <workItem from="1687418688261" duration="1493000" />
+      <workItem from="1687571991308" duration="1222000" />
+      <workItem from="1688346607576" duration="2521000" />
+      <workItem from="1692246549558" duration="728000" />
+      <workItem from="1692247290666" duration="7767000" />
+      <workItem from="1692405318670" duration="5662000" />
+      <workItem from="1692496352448" duration="2012000" />
+      <workItem from="1692577241130" duration="1212000" />
+      <workItem from="1692752925806" duration="1450000" />
+      <workItem from="1692836491854" duration="11000" />
+      <workItem from="1692864351646" duration="2635000" />
+      <workItem from="1693007858408" duration="8902000" />
+      <workItem from="1693100459653" duration="2425000" />
+      <workItem from="1693103051371" duration="10423000" />
+      <workItem from="1693182194608" duration="3648000" />
+      <workItem from="1693191884023" duration="11012000" />
+      <workItem from="1693266848117" duration="16230000" />
+      <workItem from="1693354296104" duration="15533000" />
+      <workItem from="1693704924668" duration="2167000" />
+      <workItem from="1693707252944" duration="18250000" />
+      <workItem from="1693786148413" duration="16364000" />
+      <workItem from="1693872163437" duration="4784000" />
+      <workItem from="1695732410268" duration="876000" />
+      <workItem from="1695733508793" duration="13000" />
+      <workItem from="1695734802168" duration="3611000" />
+      <workItem from="1695773390236" duration="701000" />
+    </task>
+    <task id="LOCAL-00172" summary="start transport upgrade">
+      <created>1675155784719</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1675155784719</updated>
+    </task>
+    <task id="LOCAL-00173" summary="fix year filter">
+      <created>1675235021998</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1675235021998</updated>
+    </task>
+    <task id="LOCAL-00174" summary="revert fix year filter">
+      <created>1675235397359</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1675235397359</updated>
+    </task>
+    <task id="LOCAL-00175" summary="add maintenance button">
+      <created>1675321670717</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1675321670717</updated>
+    </task>
+    <task id="LOCAL-00176" summary="re: add maintenance button">
+      <created>1675321747848</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1675321747848</updated>
+    </task>
+    <task id="LOCAL-00177" summary="new requirement leave support v2 (avsb)">
+      <created>1675738139278</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1675738139279</updated>
+    </task>
+    <task id="LOCAL-00178" summary="change requirement LeaveSupport AGMHESB">
+      <created>1675830380146</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1675830380146</updated>
+    </task>
+    <task id="LOCAL-00179" summary="revert rate calculation to 8 hours">
+      <created>1676867383896</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1676867383896</updated>
+    </task>
+    <task id="LOCAL-00180" summary="add user-copy file">
+      <created>1676951367518</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1676951367518</updated>
+    </task>
+    <task id="LOCAL-00181" summary="fix duplicate entry">
+      <created>1676951937295</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1676951937295</updated>
+    </task>
+    <task id="LOCAL-00182" summary="fix duplicate entry with '-'">
+      <created>1676952151523</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1676952151523</updated>
+    </task>
+    <task id="LOCAL-00183" summary="echo password">
+      <created>1676970118532</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1676970118532</updated>
+    </task>
+    <task id="LOCAL-00184" summary="re-echo password">
+      <created>1676970210756</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1676970210756</updated>
+    </task>
+    <task id="LOCAL-00185" summary="revert user-copy.php">
+      <created>1676970426076</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1676970426076</updated>
+    </task>
+    <task id="LOCAL-00186" summary="display all leave at HR CHECK instead of approved leave only">
+      <created>1677287914687</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1677287914687</updated>
+    </task>
+    <task id="LOCAL-00187" summary="fix datatable order - LEAVE &gt; HR CHECK">
+      <created>1677288091827</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1677288091827</updated>
+    </task>
+    <task id="LOCAL-00188" summary="add payment closed time - medical v2">
+      <created>1677716813644</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1677716813644</updated>
+    </task>
+    <task id="LOCAL-00189" summary="update format closed at - medical v2">
+      <created>1677717057296</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1677717057296</updated>
+    </task>
+    <task id="LOCAL-00190" summary="modify width table - medical v2">
+      <created>1677717137859</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1677717137859</updated>
+    </task>
+    <task id="LOCAL-00191" summary="fix balance summary in HR Check module">
+      <created>1678594238292</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1678594238293</updated>
+    </task>
+    <task id="LOCAL-00192" summary="remove space in ic number (Leave support function)">
+      <created>1678611290904</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1678611290904</updated>
+    </task>
+    <task id="LOCAL-00193" summary="add contractor list v02_aims_ot_function.php">
+      <created>1678942203944</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1678942203944</updated>
+    </task>
+    <task id="LOCAL-00194" summary="fix commercial support">
+      <created>1678950460922</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1678950460922</updated>
+    </task>
+    <task id="LOCAL-00195" summary="display all in/out in hr check instead of approved only">
+      <created>1679193453408</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1679193453408</updated>
+    </task>
+    <task id="LOCAL-00196" summary="fix ot form contractor">
+      <created>1679455886987</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1679455886988</updated>
+    </task>
+    <task id="LOCAL-00197" summary="reset all TAF approval rules">
+      <created>1679554264449</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1679554264449</updated>
+    </task>
+    <task id="LOCAL-00198" summary="reset notification TAF approval rules">
+      <created>1679554513241</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1679554513241</updated>
+    </task>
+    <task id="LOCAL-00199" summary="fix support rules KT SKILL">
+      <created>1679791999319</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1679791999319</updated>
+    </task>
+    <task id="LOCAL-00200" summary="fix query current date medical quota">
+      <created>1680407230614</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1680407230615</updated>
+    </task>
+    <task id="LOCAL-00201" summary="change sorting of medical list v2">
+      <created>1680741596946</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1680741596947</updated>
+    </task>
+    <task id="LOCAL-00202" summary="modify leave support: commercial dept">
+      <created>1681005825495</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1681005825495</updated>
+    </task>
+    <task id="LOCAL-00203" summary="remove extra single quote support leave">
+      <created>1681111561372</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1681111561373</updated>
+    </task>
+    <task id="LOCAL-00204" summary="re: remove extra single quote support leave">
+      <created>1681111642065</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1681111642065</updated>
+    </task>
+    <task id="LOCAL-00205" summary="fix syntax leave approval list">
+      <created>1681268948920</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1681268948936</updated>
+    </task>
+    <task id="LOCAL-00206" summary="fix query leave approval list">
+      <created>1681269371936</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1681269371936</updated>
+    </task>
+    <task id="LOCAL-00207" summary="revert login_exec.php">
+      <created>1681272120949</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1681272120949</updated>
+    </task>
+    <task id="LOCAL-00208" summary="duplicate: revert login_exec.php">
+      <created>1681272200092</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1681272200092</updated>
+    </task>
+    <task id="LOCAL-00209" summary="fix hod agmsb ot approval query">
+      <created>1681786590494</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1681786590495</updated>
+    </task>
+    <task id="LOCAL-00210" summary="fix hod agmsb ot claim details query">
+      <created>1681787422624</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1681787422624</updated>
+    </task>
+    <task id="LOCAL-00211" summary="syntax error">
+      <created>1681788094497</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1681788094497</updated>
+    </task>
+    <task id="LOCAL-00212" summary="add leading zero iteration to medical hr list">
+      <created>1681802060066</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1681802060066</updated>
+    </task>
+    <task id="LOCAL-00213" summary="fix car login controller">
+      <created>1681869702233</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1681869702233</updated>
+    </task>
+    <task id="LOCAL-00214" summary="add remark at medical list">
+      <created>1683077391761</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1683077391762</updated>
+    </task>
+    <task id="LOCAL-00215" summary="fix remark font size">
+      <created>1683077486616</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1683077486616</updated>
+    </task>
+    <task id="LOCAL-00216" summary="fix requirement leave support for shahira samin">
+      <created>1683694166110</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1683694166110</updated>
+    </task>
+    <task id="LOCAL-00217" summary="remove auto-support features from SECRETARY-AVSB">
+      <created>1683694470926</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1683694470926</updated>
+    </task>
+    <task id="LOCAL-00218" summary="progressing at attendance module issue">
+      <created>1683709391741</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1683709391742</updated>
+    </task>
+    <task id="LOCAL-00219" summary="fix support for operation-avsb">
+      <created>1683796959081</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1683796959083</updated>
+    </task>
+    <task id="LOCAL-00220" summary="send noti ke paih bile org edit ot permission mobile">
+      <created>1684372410005</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1684372410011</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/visitor-v2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="43" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="fix ot form contractor" />
+    <MESSAGE value="reset all TAF approval rules" />
+    <MESSAGE value="reset notification TAF approval rules" />
+    <MESSAGE value="fix support rules KT SKILL" />
+    <MESSAGE value="fix query current date medical quota" />
+    <MESSAGE value="change sorting of medical list v2" />
+    <MESSAGE value="modify leave support: commercial dept" />
+    <MESSAGE value="remove extra single quote support leave" />
+    <MESSAGE value="re: remove extra single quote support leave" />
+    <MESSAGE value="fix syntax leave approval list" />
+    <MESSAGE value="fix query leave approval list" />
+    <MESSAGE value="revert login_exec.php" />
+    <MESSAGE value="duplicate: revert login_exec.php" />
+    <MESSAGE value="fix hod agmsb ot approval query" />
+    <MESSAGE value="fix hod agmsb ot claim details query" />
+    <MESSAGE value="syntax error" />
+    <MESSAGE value="add leading zero iteration to medical hr list" />
+    <MESSAGE value="fix car login controller" />
+    <MESSAGE value="add remark at medical list" />
+    <MESSAGE value="fix remark font size" />
+    <MESSAGE value="fix requirement leave support for shahira samin" />
+    <MESSAGE value="remove auto-support features from SECRETARY-AVSB" />
+    <MESSAGE value="progressing at attendance module issue" />
+    <MESSAGE value="fix support for operation-avsb" />
+    <MESSAGE value="send noti ke paih bile org edit ot permission mobile" />
+    <option name="LAST_COMMIT_MESSAGE" value="send noti ke paih bile org edit ot permission mobile" />
+  </component>
+</project>

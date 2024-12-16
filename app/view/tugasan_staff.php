@@ -1,0 +1,300 @@
+<?php
+
+include ('../controller/auth.php');
+
+require "../model/tugasan_functions.php";
+
+$id_projek = $_GET['id_projek'];
+//echo getJsonGanttData();
+//echo $datajson = getJsonGanttData();
+//echo $datajson = getJsonGanttDataById($id_projek);
+
+?>
+<html lang="en" class="no-js"> 
+
+<!-- Head -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <? require "../global/header.php"; ?>
+  <style>
+  .row [type=checkbox] {
+      margin-right: 10px
+  }
+
+  .row {
+      width: 100%
+  }
+</style>
+
+<!-- jsGanttImproved App -->
+<link href="../../js/jsganttimprove/jsgantt.css" rel="stylesheet" type="text/css" />
+<script src="../../js/jsganttimprove/jsgantt.js" type="text/javascript"></script>
+</head>
+
+<!-- Content -->
+<div class="row">
+        <h3 class="row">Carta Gantt</h3>
+    </div>
+    <div class="row">
+    <h3 class="row">Hide and Show Properties</h3>
+
+    <div class="row">
+      <span>
+        <label for="vShowRes">Responsible</label>
+        <input type="checkbox" id="vShowRes" checked onchange="start(event)" />
+      </span>
+
+      <span>
+        <label for="vShowDur">Duration</label>
+        <input type="checkbox" id="vShowDur" checked onchange="start(event)" />
+      </span>
+
+      <span>
+        <label for="vShowComp">Comp</label>
+        <input type="checkbox" id="vShowComp" checked onchange="start(event)" />
+      </span>
+    </div>
+
+    <span>
+      <label for="vShowStartDate">StartDate</label>
+      <input type="checkbox" id="vShowStartDate" checked onchange="start(event)" />
+    </span>
+
+    <span>
+      <label for="vShowEndDate">EndDate</label>
+      <input type="checkbox" id="vShowEndDate" checked onchange="start(event)" />
+    </span>
+
+    <span>
+      <label for="vShowPlanStartDate">Planned StartDate</label>
+      <input type="checkbox" id="vShowPlanStartDate" checked onchange="start(event)" />
+    </span>
+
+    <span>
+      <label for="vShowPlanEndDate">Planned EndDate</label>
+      <input type="checkbox" id="vShowPlanEndDate" checked onchange="start(event)" />
+    </span>
+  </div>  
+<body data-spy="scroll" data-target="#my-navbar-nav" style="padding: 30px;">
+    
+    <div id="modalAdd"></div>
+    <div id="embedded-Gantt">
+    </div>
+
+</body>
+<!-- <script type="text/javascript" src="../../js/jsganttimprove/index.js"></script> -->
+<script type="text/javascript">
+    let dataurl;
+let jsonObj;
+
+function start(e) {
+  //alert('update');
+  var g = new JSGantt.GanttChart(document.getElementById('embedded-Gantt'), 'day');
+  if (g.getDivId() != null) {
+
+    //const newDataurl = document.getElementById('dataurl').value ? document.getElementById('dataurl').value : '';
+    // const vDebug = document.querySelector('#debug:checked') ? true : false;
+    // const vEditable = document.querySelector('#editable:checked') ? true : false;
+    // const vUseSort = document.querySelector('#sort:checked') ? true : false;
+
+    //const newDataurl = '../../js/jsganttimprove/data.json';
+    const vDebug = true;
+    const vEditable = false;
+    const vUseSort = false;
+
+    // Parameters                     (pID, pName,                  pStart,       pEnd,        pStyle,         pLink (unused)  pLink: pMilpMile: e, pRes,       pComp, pGroup, pParent, pOpen, pDepend, pCaption, pNotes, pGantt)
+    // if (dataurl !== newDataurl) {
+    //   dataurl = newDataurl;
+    //   jsonObj = JSGantt.parseJSONSQL(dataurl, g, vDebug);
+    // } else {
+    //   JSGantt.addJSONTask(g, jsonObj)
+    // }
+
+    jsonObj = JSGantt.parseJSONSQL(<?echo getJsonGanttDataById($id_projek)?>, g, vDebug);
+
+    // SET LANG FROM INPUT
+    // lang = e && e.target ? e.target.value : 'pt';
+    // delay = document.getElementById('delay').value;
+    lang = 'en';
+    delay = "150";
+
+
+    // vUseSingleCell = document.getElementById('useSingleCell').value;
+    vShowRes = document.querySelector('#vShowRes:checked') ? 1 : 0;
+    // vShowCost = document.querySelector('#vShowCost:checked') ? 1 : 0;
+    vShowComp = document.querySelector('#vShowComp:checked') ? 1 : 0;
+    vShowDur = document.querySelector('#vShowDur:checked') ? 1 : 0;
+    vShowStartDate = document.querySelector('#vShowStartDate:checked') ? 1 : 0;
+    vShowEndDate = document.querySelector('#vShowEndDate:checked') ? 1 : 0;
+    vShowPlanStartDate = document.querySelector('#vShowPlanStartDate:checked') ? 1 : 0;
+    vShowPlanEndDate = document.querySelector('#vShowPlanEndDate:checked') ? 1 : 0;
+    // vShowTaskInfoLink = document.querySelector('#vShowTaskInfoLink:checked') ? 1 : 0;
+    // vShowEndWeekDate = document.querySelector('#vShowEndWeekDate:checked') ? 1 : 0;
+
+    vUseSingleCell = "1000";
+    // vShowRes = 1;
+    vShowCost = 0;
+    // vShowComp = 1;
+    // vShowDur = 1;
+    // vShowStartDate = 1;
+    // vShowEndDate = 1;
+    // vShowPlanStartDate = 1;
+    // vShowPlanEndDate = 1;
+    vShowTaskInfoLink = 0;
+    vShowEndWeekDate = 0;
+    //vAdditionalHeaders = null;
+    vAdditionalHeaders = {
+      predecessor: {
+        title: 'Predecessor'
+      }
+    }
+
+    g.setOptions({
+      vCaptionType: 'Complete',  // Set to Show Caption : None,Caption,Resource,Duration,Complete,            
+      vQuarterColWidth: 36,
+      vDateTaskDisplayFormat: 'day dd month yyyy', // Shown in tool tip box
+      vDayMajorDateDisplayFormat: 'mon yyyy - Week ww',// Set format to display dates in the "Major" header of the "Day" view
+      vWeekMinorDateDisplayFormat: 'dd mon', // Set format to display dates in the "Minor" header of the "Week" view
+      vLang: lang,
+      vUseSingleCell, // Set the threshold at which we will only use one cell per table row (0 disables).  Helps with rendering performance for large charts.
+      vShowRes,
+      vShowCost,
+      vShowComp,
+      vShowDur,
+      vShowStartDate,
+      vShowEndDate,
+      vShowPlanStartDate,
+      vShowPlanEndDate,
+      vAdditionalHeaders,
+      vEvents: {
+        taskname: console.log,
+        res: console.log,
+        dur: console.log,
+        comp: console.log,
+        start: console.log,
+        end: console.log,
+        planstart: console.log,
+        planend: console.log,
+        cost: console.log
+      },
+      vEventsChange: {
+        taskname: editValue.bind(this, jsonObj),
+        res: editValue.bind(this, jsonObj),
+        dur: editValue.bind(this, jsonObj),
+        comp: editValue.bind(this, jsonObj),
+        start: editValue.bind(this, jsonObj),
+        end: editValue.bind(this, jsonObj),
+        planstart: editValue.bind(this, jsonObj),
+        planend: editValue.bind(this, jsonObj),
+        cost: editValue.bind(this, jsonObj)
+      },
+      vResources: <?echo getAllStaff()?>,
+      vTask: <?echo getAllTask()?>,
+      vProject:<?echo $id_projek?>,
+      vEventClickRow: console.log,
+      vShowTaskInfoLink, // Show link in tool tip (0/1)
+      vShowEndWeekDate,  // Show/Hide the date for the last day of the week in header for daily view (1/0)
+      vTooltipDelay: delay,
+      vDebug,
+      vEditable,
+      vUseSort,
+      vFormatArr: ['Day', 'Week', 'Month', 'Quarter'], // Even with setUseSingleCell using Hour format on such a large chart can cause issues in some browsers
+    });
+    //DELAY FROM INPUT
+
+    // Teste manual add task
+    // g.AddTaskItemObject({
+    //   pID: 100,
+    //   pName: "Task 1",
+    //   pStart: "2018-09-05",
+    //   pEnd: "2018-09-11",
+    //   pLink: "",
+    //   pClass: "gtaskgreen",
+    //   pMile: 0,
+    //   pComp: 100,
+    //   pGroup: 0,
+    //   pParent: 0,
+    //   pOpen: 1,
+    //   pNotes: "",
+    //   category: 'test'
+    // });
+
+    if (vDebug) {
+      bd = new Date();
+      console.log('before reloading', bd);
+    }
+    g.Draw();
+    JSGantt.criticalPath(jsonObj)
+    if (vDebug) {
+      const ad = new Date();
+      console.log('after reloading: total time', ad, (ad.getTime() - bd.getTime()));
+    }
+
+  } else {
+    alert("Error, unable to create Gantt Chart");
+  }
+}
+
+
+function editValue(list, task, event, cell, column) {
+  //alert('editValue');
+  const found = list.find(item => item.pID == task.getOriginalID());
+  if (!found) {
+    return;
+  }
+  else {
+    found[column] = event ? event.target.value : '';
+  }
+}
+start('pt');
+
+function addDays(obj) {
+  var days = obj.value;
+  if(days == "") days = 0;
+  var tarik_mula = $('#startdate').val();
+    var result = new Date(tarik_mula);
+    if(days > 0){
+      result.setDate(result.getDate() + parseInt(days) - 1);
+    }
+    $('#tarikh_tamat').html(result.toLocaleDateString());
+
+    var dd = result.getDate();
+    var mm = result.getMonth() + 1;
+    var y = result.getFullYear();
+
+    $('#enddate').val(y+'-'+setDateZero(mm)+'-'+setDateZero(dd));
+}
+
+function setDateZero(value){
+  return value < 10 ? '0' + value : value;
+}
+
+function recheckEndDate(){
+  //$("#startdate").datepicker().on('changeDate', function (e) {
+    //alert('date has changed!');
+    var days = $('#duration').val();
+    if(days == "") days = 0;
+    var tarik_mula = $('#startdate').val();
+    var result = new Date(tarik_mula);
+    if(days > 0){
+      result.setDate(result.getDate() + parseInt(days) - 1);
+    }
+
+    $('#tarikh_tamat').html(result.toLocaleDateString());
+
+    var dd = result.getDate();
+    var mm = result.getMonth() + 1;
+    var y = result.getFullYear();
+
+    $('#enddate').val(y+'-'+setDateZero(mm)+'-'+setDateZero(dd));
+  //});
+}
+</script>
+
+</html>

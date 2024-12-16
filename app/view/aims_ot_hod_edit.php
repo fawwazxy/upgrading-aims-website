@@ -1,0 +1,64 @@
+<?php
+
+	include ('../controller/auth.php');
+	require "../model/lookup.php";	
+	require "../model/aims_ot_function.php";
+
+	$id = $_POST['id'];
+	$otpinfo = getOtHodById($id)->fetch_assoc();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <? require "../global/header.php"; ?>
+	
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        
+            
+            <form method="post" action="../controller/aims_ot_hod_edit_exec.php"
+            enctype="multipart/form-data">  
+			<input type="hidden" class="form-control" placeholder="" id="id" name="id" value="<? echo $otpinfo['id'] ?>" />
+	
+                                <div class="form-group" align="left">
+                                 <label>Working Period<font color="red">**</font>&nbsp;</label><br>
+                                 <input type="text" class="form-control" id="working_hours" name="working_hours" type="text" value="<? echo $otpinfo['working_hours']; ?>" placeholder="0H 00M" onkeyup="convertToUppercase(this)"/>
+                                 </div>
+								 
+								  <div class="form-group" align="left">
+                                 <label>Remark (if any)<font color="red"></font>&nbsp;</label><br>
+                                 <textarea class="form-control" id="hod_remark" name="hod_remark" type="text" rows="5" onkeyup="convertToUppercase(this)"><? echo $otpinfo['hod_remark']; ?></textarea>
+                                 </div>
+								
+								<hr>
+                       <div align="center">
+                          <button type="update" class="btn btn-primary">Edit</button>
+                       </div>    
+                            
+         </form>
+</div>
+                       
+<script>
+	function convertToUppercase(el) {
+        if(!el || !el.value) return;
+        el.value = el.value.toUpperCase();
+    }
+    </script>
+</body>
+
+</html>

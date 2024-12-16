@@ -1,0 +1,11 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.7",
+      "ext-mysqli": "*",
+      "ext-calendar": "*",
+      "ext-json": "*",
+      "ext-curl": "*",
+      "ext-zip": "*",
+      "ext-imagick": "*"
+    }
+}

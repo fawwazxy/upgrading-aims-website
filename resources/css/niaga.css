@@ -1,0 +1,92 @@
+<style>
+body
+{
+	
+	font-size: 12px;
+	background-color: white;
+	text-align: justify;
+	font-family: "Times New Roman", Times, serif;
+	
+	
+	
+}
+.grid-header {
+  display: grid;
+  grid:25% /25% auto 25%;
+  grid-gap: 10px;
+  
+  padding: 10px;
+}
+.grid-container {
+  display: grid;
+  grid:40% /50% auto;
+  grid-gap: 10px;
+  
+  padding: 10px;
+}
+.grid-footer {
+  display: grid;
+  grid:50% /50% auto;
+  grid-gap: 10px;
+  
+  padding: 10px;
+}
+img
+{
+	float: left;
+	width: 120px;
+	height: 145px;
+}
+img.sign
+{   position: absolute;
+    z-index: -1;
+	width:150px;
+	height:50px;
+	
+}
+img.cop
+{
+	width:80px;
+	height:80px;
+	margin-left: 20px;
+}
+
+
+p {
+    font-family: "Times New Roman", Times, serif;
+	text-align: justify;
+	font-size: 12px;
+   
+}
+.item5 {
+  grid-area: 2 / 1 / span 2 / span 2;
+}
+
+
+span
+{ 
+       display:inline-block; 
+       margin-left: 40px; 
+}
+span.a
+{
+	margin-left: 20px;
+}
+h4
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size : 17px;
+}
+h5
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 10px;
+}
+h6
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 9px;
+}
+
+
+</style>

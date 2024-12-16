@@ -1,0 +1,255 @@
+<?php
+require_once '../../lib/dompdf/autoload.inc.php';
+require "../model/v02_attendance_function.php";
+use Dompdf\Dompdf;
+$dompdf = new Dompdf();
+$id = $_GET['id'];
+$month = $_GET['month'];
+$year = $_GET['year'];
+$name_month = date('F', $month);
+$staff_info = getStaffName($id)->fetch_assoc();
+
+
+$description = "";
+$i= 1;
+$data = getAttendanceMonthlyReport($id, $month, $year);
+if ($data->num_rows == 0){
+    $description = '<tr><td colspan="5" class="text-center">No Data Found</td></tr>';
+} else{
+    while($row_data = $data->fetch_assoc()) {
+        if ($row_data['status'] == 0){
+            $font_color = 'RED';
+            $status = 'LATE';
+        } elseif ($row_data['status'] == 1) {
+            $font_color = 'BLUE';
+            $status = 'ON TIME';
+        } elseif ($row_data['status'] == 2) {
+            $font_color = 'GREEN';
+            $status = 'EARLY';
+        }$image_in = '<tr>
+                            <td style="width: 30%">Image</td>
+                            <td style="width: 5%">:</td>
+                            <td><img class="img" src="../../logphoto/'.$row_data['clock_in_photo'].'"/></td>
+                         </tr>';
+        if($row_data['clock_out_method'] == 'PHOTO-LOG'){
+            $image_out = '<tr>
+                            <td>Image</td>
+                            <td>:</td>
+                            <td><img class="img" src="../../logphoto/'.$row_data['clock_out_photo'].'"/></td>
+                          </tr>';
+        }
+        $description .= '<tr>
+                            <td rowspan="2" class="text-center">'.$i++.'</td>
+                            <td rowspan="2" class="text-center">'.$row_data['date'].'</td>
+                            <td>
+                                <table class="no">
+                                    <tr>
+                                        <td style="width: 32%">Time</td>
+                                        <td style="width: 5%">:</td>
+                                        <td>' . $row_data['time_in'] . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Platform</td>
+                                        <td>:</td>
+                                        <td>' . $row_data['clock_in_method'] . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>:</td>
+                                        <td>' . $row_data['clock_in_remark'] . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coordinate</td>
+                                        <td>:</td>
+                                        <td>' . $row_data['clock_in_location'] . '</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table class="no">
+                                    <tr>
+                                        <td style="width: 32%">Time</td>
+                                        <td style="width: 5%">:</td>
+                                        <td>' . $row_data['time_out'] . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Platform</td>
+                                        <td>:</td>
+                                        <td>' . $row_data['clock_out_method'] . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>:</td>
+                                        <td>' . $row_data['clock_out_remark'] . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coordinate</td>
+                                        <td>:</td>
+                                        <td>' . $row_data['clock_out_location'] . '</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td rowspan="2" class="text-center" style="vertical-align: middle; padding-top: 10px; color: '.$font_color.'">'.$status.'</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class="no">
+                                    '.(empty($row_data['clock_in_photo'])? : $image_in).'
+                                </table>
+                            </td>
+                            <td>
+                                <table class="no">
+                                    '.$image_out.'
+                                </table>
+                            </td>
+                        </tr>';
+    }
+}
+
+//Generate full html (to be converted to PDF) --------------------------------------------------------------------------
+$html = '
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="../../resources/images/aims_logo.png" />
+    <title>ATTENDANCE REPORT</title>
+    <style>
+        @page { 
+            margin: 0.635cm;
+        }
+        .logo{
+            width: 100px; 
+            height: 120px;
+            padding-bottom: 10px;
+        }
+        body{
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            margin: 0.635cm;
+        }
+        .img{
+            width: 180px; 
+            height: 200px;
+        }
+        .title{
+            font-weight: bold;
+            font-size: 1.6em;
+        }
+        table.finance td:empty::after{
+            content: "\00a0";
+        }
+        .total{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table.total th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            height: 15px;
+        }
+        table.total td{
+            padding: 0 2% 0 2%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .time{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table.time th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            height: 15px;
+        }
+        table.time td{
+            padding: 0 2% 0 2%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .no{
+        padding: 10px 5px 10px 5px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table.no th{
+            border: none;
+            border-collapse: collapse;
+            height: 15px;
+        }
+        table.no td{
+            word-wrap: break-word;
+            border: none;
+            border-collapse: collapse;
+            vertical-align: top;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .text-left{
+            text-align: left;
+        }
+        .w-100{
+            width: 100%;
+        }
+        .separator{
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <table class="w-100 text-center" style="padding-bottom: 20px;">
+        <tr>
+            <td><img class="logo" src="../../resources/images/aims_logo.png" alt="logo"/></td>
+        </tr>
+        <tr>
+            <td class="title">MONTHLY ATTENDANCE REPORT</td>
+        </tr>
+        <tr>
+            <td><img src="../../staffphoto/'.$staff_info['nama_photo'].'" style="padding-top: 10px; width: 120px; height: 130px;"/></td>
+        </tr>
+    </table>
+    <table class="w-100 text-left" style="padding-bottom: 20px;">
+        <tr>
+            <td style="width: 25%">Attendance Report For</td>
+            <td style="width: 5%">:</td>
+            <td>'.$staff_info['name'].'</td>
+        </tr>
+        <tr>
+            <td style="width: 25%">Company</td>
+            <td style="width: 5%">:</td>
+            <td>'.$staff_info['jabatan'].'</td>
+        </tr>
+        <tr>
+            <td>Report For Month</td>
+            <td>:</td>
+            <td style="text-transform: uppercase;">'.$name_month.'</td>
+        </tr>
+    </table>
+    <table class="time">
+            <thead>
+                <tr class="text-center">
+                    <th style="width: 5%">#</th>
+                    <th style="width: 20%">Date</th>
+                    <th style="width: 45%">Clock In</th>
+                    <th style="width: 45%">Clock Out</th>
+                    <th style="width: 10%">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                '.$description.'
+          </tbody>
+    </table>
+</body>
+</html>';
+// Generate PDF from HTML ----------------------------------------------------------------------------------------------
+$dompdf->loadHtml($html);
+$dompdf->setPaper('A4', 'potrait');
+$dompdf->render();
+ob_end_clean();
+$dompdf->stream("Daily_Report",array("Attachment"=>0));
+?>

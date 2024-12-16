@@ -1,0 +1,182 @@
+<?php
+require '../../lib/db/connection.php';
+    
+$action = $_POST['action'];
+// -start-
+if($action == "closeApp"){
+	$id = $_POST['id'];
+	$status = $_POST['status'];
+	if ($status == '1') {
+		$status = '0';
+	}
+	else {
+		$status = '1';
+	}
+	$conn=db();
+	$sql = "UPDATE aims_ssa SET status='$status' WHERE id = '$id'";
+	$result = $conn->query($sql);
+}
+// -end-
+
+	
+	// Function to sanitize values received from the form. Prevents SQL injection
+    function clean($str) {
+		$conn=db();
+        $str = @trim($str);
+        if(get_magic_quotes_gpc()) {
+            $str = stripslashes($str);
+        }
+        return mysqli_real_escape_string($conn,$str);
+    }
+
+	function getSys($sys_id) {
+		$conn=db();
+		$sql = "SELECT s.*,c.short_name FROM sys_setting s LEFT JOIN company c ON c.sys_id=s.sys_id WHERE s.sys_id='$sys_id'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function addSSA($ssa_no, $date, $vessel, $location, $department, $ssa_raised, $aa, $bb, $cc, $dd,$status, $document, $document_name, $fileType,$remark){
+		$conn=db();
+		$gambar = '';
+        $gambar_val = '';
+        if($document_name!=""){
+            $gambar=" ,document,document_type,document_name";
+            $gambar_val=",'$document','$fileType','$document_name'";
+        }
+		$sql = "INSERT INTO aims_ssa (ssa_no, date, vessel, location, department, ssa_raised, aa, bb, cc, dd,status$gambar,remark) 
+		VALUES ('$ssa_no', '$date', '$vessel', '$location', '$department', '$ssa_raised', '$aa', '$bb', '$cc', '$dd','$status'$gambar_val,'$remark')";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	
+	function listSSAaa1($department_sub){
+		$conn=db();
+		
+		
+		$sql = "SELECT * FROM aims_ssa WHERE vessel='AA1'";
+		
+		
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function listSSAaa2(){
+		$conn=db();
+		$sql = "SELECT * FROM aims_ssa WHERE vessel='AA2'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function listSSAaa3(){
+		$conn=db();
+		$sql = "SELECT * FROM aims_ssa WHERE vessel='AA3'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function listSSAaa4(){
+		$conn=db();
+		$sql = "SELECT * FROM aims_ssa WHERE vessel='AA4'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function listSSAaa5(){
+		$conn=db();
+		$sql = "SELECT * FROM aims_ssa WHERE vessel='AA5'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	//OPEN CLOSE 
+	
+	function getSSAList1($status,$department_sub) {
+	$conn=db();
+
+	$sql = "SELECT * FROM aims_ssa 
+			WHERE status = '$status'
+			AND vessel='AA1'
+			ORDER BY id DESC";
+	
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function getSSAList2($status) {
+	$conn=db();
+	$sql = "SELECT * FROM aims_ssa 
+			WHERE status = '$status'
+			AND vessel='AA2'
+			ORDER BY id DESC";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function getSSAList3($status) {
+	$conn=db();
+	$sql = "SELECT * FROM aims_ssa 
+			WHERE status = '$status'
+			AND vessel='AA3'
+			ORDER BY id DESC";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function getSSAList4($status) {
+	$conn=db();
+	$sql = "SELECT * FROM aims_ssa 
+			WHERE status = '$status'
+			AND vessel='AA4'
+			ORDER BY id DESC";
+	$result = $conn->query($sql);
+	return $result;
+}
+
+function getSSAList5($status) {
+	$conn=db();
+	$sql = "SELECT * FROM aims_ssa 
+			WHERE status = '$status'
+			AND vessel='AA5'
+			ORDER BY id DESC";
+	$result = $conn->query($sql);
+	return $result;
+}
+	
+	function updateSSA($ssa_no, $date, $vessel, $location, $department, $ssa_raised, $aa, $bb, $cc, $dd,$status, $document,$document_name,$fileType,$remark, $id){
+		$conn=db();
+		$sql = "UPDATE aims_ssa SET ssa_no='$ssa_no', date= '$date', vessel='$vessel', location='$location', department='$department', ssa_raised='$ssa_raised', aa='$aa', bb='$bb', cc='$cc', dd='$dd',status='$status',remark ='$remark'";
+		if($document_name!=""){
+          $sql.=" ,document='$document',document_name='$document_name',document_type='$fileType' "; 
+        }
+		$sql.="  WHERE id='$id'";
+		$result=$conn->query($sql) or die($conn->error);
+		return $result;
+	}
+	
+	function deleteSSA($id){
+		$conn=db();
+		$sql = "DELETE FROM aims_ssa WHERE id='$id'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function getSSAid($id){
+		$conn=db();
+		$sql = "SELECT * FROM aims_ssa WHERE id='$id'";
+		$result = $conn->query($sql);
+		return $result;
+	}
+	
+	function getLampiranInfo($id){
+        $conn=db();
+        $sql=" SELECT * FROM aims_ssa
+                WHERE id='$id'";
+        $result=$conn->query($sql);
+        return $result;  
+    }
+	
+	$conn->close();
+	
+?>

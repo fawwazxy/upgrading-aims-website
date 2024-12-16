@@ -1,0 +1,1 @@
+<h6>Laporan ini dijanakan melalui <?echo $sys['sys_name']?>. Hakcipta Terpelihara &copy; <?echo $sys['sys_name']?>&nbsp;<?echo $date_year;?><br>Hasil Ciptaan, Konsep dan Rekabentuk oleh Indeepreneur.com</h6>
